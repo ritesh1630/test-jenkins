@@ -3,13 +3,13 @@ pipeline{
    stages{
      stage('build')
         {
-          agent any 
-         /* options {
-              skipDefaultCheckout()
-             } */
-         steps {
-            echo " hello world "
-          }
-       }
-     }
-  }
+           when {
+              changelog '.*some_text.*'
+           }
+           steps{
+              echo "hello world changelog"
+           }
+        }
+   }
+   
+}
